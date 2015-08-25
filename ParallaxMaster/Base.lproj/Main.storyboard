@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="odV-hR-GXa">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Parallax-->
+        <scene sceneID="XMW-C2-mUQ">
+            <objects>
+                <tableViewController id="TC2-Hj-j18" customClass="MyViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="X6e-jt-9OV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellId" id="ANR-Lu-vGi">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ANR-Lu-vGi" id="lp2-oC-Han">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TC2-Hj-j18" id="Cua-eR-XxT"/>
+                            <outlet property="delegate" destination="TC2-Hj-j18" id="w3T-bD-SGn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Parallax" id="M9z-Rw-9n2"/>
+                    <connections>
+                        <outlet property="parallaxView" destination="CgD-zC-JTQ" id="wSr-67-HCr"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWW-ke-diK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="CgD-zC-JTQ" customClass="ParallaxView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2LR-kb-jYB">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                            <color key="backgroundColor" red="1" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </scrollView>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulg-8e-Ff3">
+                            <rect key="frame" x="260" y="110" width="80" height="80"/>
+                            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="evG-7w-xk6"/>
+                                <constraint firstAttribute="width" constant="80" id="vXz-G9-Hxj"/>
+                            </constraints>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="2LR-kb-jYB" firstAttribute="leading" secondItem="CgD-zC-JTQ" secondAttribute="leading" id="BBt-JQ-y8v"/>
+                        <constraint firstAttribute="centerX" secondItem="ulg-8e-Ff3" secondAttribute="centerX" id="C9K-Aq-DY9"/>
+                        <constraint firstItem="2LR-kb-jYB" firstAttribute="top" secondItem="CgD-zC-JTQ" secondAttribute="top" id="VWN-Sz-XQV"/>
+                        <constraint firstAttribute="trailing" secondItem="2LR-kb-jYB" secondAttribute="trailing" id="Vag-28-4e8"/>
+                        <constraint firstAttribute="bottom" secondItem="2LR-kb-jYB" secondAttribute="bottom" id="jLs-tw-4jb"/>
+                        <constraint firstAttribute="bottom" secondItem="ulg-8e-Ff3" secondAttribute="bottom" constant="10" id="mCM-Gh-ODK"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="parallaxScrollView" destination="2LR-kb-jYB" id="81F-ZC-Tsg"/>
+                    </connections>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="226" y="-407"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AwK-BQ-6CS">
+            <objects>
+                <navigationController id="odV-hR-GXa" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IiO-ZI-fxp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TC2-Hj-j18" kind="relationship" relationship="rootViewController" id="Jl3-sm-IRC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axY-nE-ewB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-416" y="-415"/>
+        </scene>
+    </scenes>
+</document>
